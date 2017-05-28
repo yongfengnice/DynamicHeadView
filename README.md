@@ -5,4 +5,4 @@ scrollable view with dynamic head，such as ListView and RecyclerView
 
 ![](http://i.imgur.com/gs9VsNz.gif)
 
-![](http://i.imgur.com/SqcFT4e.gif)
+![](http://i.imgur.com/wqIt6wC.gif)
