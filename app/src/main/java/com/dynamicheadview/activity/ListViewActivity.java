@@ -1,4 +1,4 @@
-package com.dynamicheadlistview;
+package com.dynamicheadview.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,13 +7,14 @@ import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.dynamicheadlistview.adapter.ItemAdapter;
-import com.dynamicheadlistview.widget.DynamicHeadListView;
+import com.dynamicheadview.R;
+import com.dynamicheadview.adapter.ListItemAdapter;
+import com.dynamicheadview.widget.DynamicHeadListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends Activity {
+public class ListViewActivity extends Activity {
     private TextView mTvHead;
     private DynamicHeadListView mLvTest;
 
@@ -24,12 +25,12 @@ public class MainActivity extends Activity {
 
 
     private List<String> mStringList;
-    private ItemAdapter mItemAdapter;
+    private ListItemAdapter mListItemAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_list_view);
         initView();
         initData();
     }
@@ -51,7 +52,7 @@ public class MainActivity extends Activity {
             mStringList.add("测试数据:---" + i);
         }
 
-        mItemAdapter = new ItemAdapter(this, mStringList);
-        mLvTest.setAdapter(mItemAdapter);
+        mListItemAdapter = new ListItemAdapter(this, mStringList);
+        mLvTest.setAdapter(mListItemAdapter);
     }
 }

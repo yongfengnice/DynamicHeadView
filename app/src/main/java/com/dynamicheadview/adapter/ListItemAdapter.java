@@ -1,4 +1,4 @@
-package com.dynamicheadlistview.adapter;
+package com.dynamicheadview.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.dynamicheadlistview.R;
+import com.dynamicheadview.R;
 
 import java.util.List;
 
@@ -15,12 +15,12 @@ import java.util.List;
  * Created by yongfengnice on 5/26/2017.
  */
 
-public class ItemAdapter extends BaseAdapter {
+public class ListItemAdapter extends BaseAdapter {
 
     private final Context mContext;
     private final List<String> mStringList;
 
-    public ItemAdapter(Context context, List<String> stringList) {
+    public ListItemAdapter(Context context, List<String> stringList) {
         mContext = context;
         mStringList = stringList;
     }

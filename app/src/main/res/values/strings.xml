@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">DynamicHeadListView</string>
+    <string name="app_name">DynamicHeadView</string>
+    <string name="lv_name">DynamicHeadListView</string>
+    <string name="cv_name">DynamicHeadRecyclerView</string>
 </resources>

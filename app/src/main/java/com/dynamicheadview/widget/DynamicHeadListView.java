@@ -1,4 +1,4 @@
-package com.dynamicheadlistview.widget;
+package com.dynamicheadview.widget;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -98,8 +98,8 @@ public class DynamicHeadListView extends ListView {
         dy = dy / 2;
         int height = mDynamicView.getHeight();
         if (dy > 0) {//forward down
-            if (getFirstVisiblePosition() == 0 && getChildAt(0).getTop() == 0
-                    && height < mDynamicViewHeight) {//first item is visible
+            //Negative to check scrolling up, positive to check scrolling down
+            if (!canScrollVertically(-1) && height < mDynamicViewHeight) {//first item is visible
                 ViewGroup.LayoutParams params = mDynamicView.getLayoutParams();
                 params.height = Math.round(height + dy);
                 if (params.height > mDynamicViewHeight) {

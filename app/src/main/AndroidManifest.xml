@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.dynamicheadlistview">
+          package="com.dynamicheadview">
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,13 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".activity.ListViewActivity"
+            android:label="@string/lv_name"/>
+        <activity
+            android:name=".activity.RecyclerActivity"
+            android:label="@string/cv_name"/>
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
