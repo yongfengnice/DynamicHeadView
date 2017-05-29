@@ -57,9 +57,6 @@ public class DynamicHeadRecyclerView extends RecyclerView {
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
-        if (getChildCount() <= 0) {
-            return super.onTouchEvent(ev);
-        }
         if (mDynamicViewHeight == 0) {
             mDynamicViewHeight = mDynamicView.getHeight();
         }
