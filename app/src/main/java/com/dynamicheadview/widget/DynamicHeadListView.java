@@ -28,31 +28,36 @@ public class DynamicHeadListView extends ListView {
 
     public DynamicHeadListView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context);
+    }
+
+    private void init(Context context) {
+        mValueAnimator = ValueAnimator.ofInt(0, mDynamicViewHeight);
+        mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                Object animatedValue = animation.getAnimatedValue();
+                if (animatedValue instanceof Integer) {
+                    ViewGroup.LayoutParams params = mDynamicView.getLayoutParams();
+                    params.height = Integer.parseInt(animatedValue.toString());
+                    mDynamicView.setLayoutParams(params);
+                }
+            }
+        });
     }
 
     public void setDynamicView(View dynamicView) {
         mDynamicView = dynamicView;
     }
 
+    public void setDynamicViewHeight(int dynamicViewHeight) {
+        mDynamicViewHeight = dynamicViewHeight;
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
-        if (getChildCount() <= 0) {
-            return super.onTouchEvent(ev);
-        }
         if (mDynamicViewHeight == 0) {
             mDynamicViewHeight = mDynamicView.getHeight();
-            mValueAnimator = ValueAnimator.ofInt(0, mDynamicViewHeight);
-            mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    Object animatedValue = animation.getAnimatedValue();
-                    if (animatedValue instanceof Integer) {
-                        ViewGroup.LayoutParams params = mDynamicView.getLayoutParams();
-                        params.height = Integer.parseInt(animatedValue.toString());
-                        mDynamicView.setLayoutParams(params);
-                    }
-                }
-            });
         }
 
         if (mValueAnimator != null && mValueAnimator.isRunning()) {
@@ -77,6 +82,9 @@ public class DynamicHeadListView extends ListView {
                 if (handleMoveUp) {
                     return true;
                 }
+                break;
+            default:
+                handleActionUp(ev.getRawY());
                 break;
         }
 
